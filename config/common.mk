@@ -65,6 +65,17 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
+# USE V4A
+ifeq ($(WITH_V4A),true)
+PRODUCT_COPY_FILES += $(shell test -d vendor/cm/prebuilt/V4A/app/ViPER4Android && \
+    find vendor/cm/prebuilt/V4A/app/ViPER4Android -name '*.apk' \
+    -printf '%p:system/app/ViPER4Android/%f ')
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/lib/soundfx/libv4a.so:system/lib/soundfx/libv4a.so
+else
+PRODUCT_PACKAGES += \
+    AudioFX
+endif
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
@@ -80,6 +91,10 @@ PRODUCT_COPY_FILES += \
 # This is CM!
 PRODUCT_COPY_FILES += \
     vendor/cm/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
+
+# Phonelocation!
+PRODUCT_COPY_FILES +=  \
+    vendor/cm/prebuilt/common/media/location/suda-phonelocation.dat:system/media/location/suda-phonelocation.dat
 
 # Include CM audio files
 include vendor/cm/config/cm_audio.mk
@@ -119,12 +134,12 @@ PRODUCT_PACKAGES += \
 
 # Custom CM packages
 PRODUCT_PACKAGES += \
-    AudioFX \
     CMSettingsProvider \
     CMUpdater \
     CustomTiles \
     LineageSetupWizard \
     Eleven \
+    PhoneLocationProvider \
     ExactCalculator \
     LiveLockScreenService \
     LockClock \
