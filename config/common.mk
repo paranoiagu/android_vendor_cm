@@ -133,6 +133,7 @@ PRODUCT_PACKAGES += \
     Jelly \
     LiveLockScreenService \
     LockClock \
+    ThemeInterfacer \
     Trebuchet \
     WallpaperPicker \
     WeatherProvider
