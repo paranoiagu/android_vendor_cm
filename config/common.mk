@@ -142,6 +142,7 @@ PRODUCT_PACKAGES += \
     Eleven \
     PhoneLocationProvider \
     ExactCalculator \
+    Jelly \
     LiveLockScreenService \
     LockClock \
     ThemeInterfacer \
