@@ -137,7 +137,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CMSettingsProvider \
     CMUpdater \
-    CustomTiles \
     LineageSetupWizard \
     Eleven \
     PhoneLocationProvider \
